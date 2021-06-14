@@ -1,11 +1,33 @@
 {
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.2",
     "express-session": "^1.17.2",
+    "msql": "^1.0.3",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.6.2"
-  }
+    "node": "^16.1.0",
+    "sequelize": "^6.6.2",
+    "sess": "^0.1.4",
+    "session": "^0.1.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "tech-blog",
+  "description": "Setting up start-up filesgit",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizvi5a/tech-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizvi5a/tech-blog/issues"
+  },
+  "homepage": "https://github.com/rizvi5a/tech-blog#readme"
 }

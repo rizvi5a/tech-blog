@@ -13,12 +13,19 @@ Post.init(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      
+      
     },
     description: {
       type: DataTypes.STRING,
+    
+      
     },
-   
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: DataTypes.NOW,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -32,7 +39,7 @@ Post.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'post',
   }
 );
 
