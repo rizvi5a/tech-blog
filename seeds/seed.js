@@ -58,21 +58,24 @@ const seedAll = async () => {
 
   for (const user of userData) {
    await User.create({
-      ...user
+      ...user,
+       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
   for (const user of postData) {
     await Post.create({
-      ...post,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+      ...user,
+     user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 
-for (const user of commentData) {
+  for (const user of commentData) {
     await Comment.create({
-       ...user
+       ...user,
+       
+      user_id: users[Math.floor(Math.random() * users.length)].id,
      });
-   }
+      }
   process.exit(0);
 };
 
