@@ -35,11 +35,12 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+   console.log(response)
     if (response.ok) {
+      alert("User account created")
       document.location.replace('/profile');
     } else {
-      alert(response.statusText);
+      alert("Please use unique email and password of length -8");
     }
   }
 };

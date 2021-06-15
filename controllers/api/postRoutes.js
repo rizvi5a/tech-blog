@@ -6,6 +6,7 @@ const router = require('express').Router();
 
 
 router.post('/', async (req, res) => {
+  console.log("POST route post",req.body)
   try {
     const newPost = await Post.create({
       ...req.body,

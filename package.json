@@ -14,7 +14,8 @@
     "session": "^0.1.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch":"nodemon server.js"
   },
   "name": "tech-blog",
   "description": "Setting up start-up filesgit",
