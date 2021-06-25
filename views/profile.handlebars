@@ -6,36 +6,30 @@
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Post:</h3>
+    <h3>Create a New post:</h3>
 
-     <form class="form new-post-form">
+    <form class="form new-post-form">
       <div class="form-group">
-        <label for="post-title">Post Name:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
+        <label for="post-title">post title:</label>
+        <input class="form-input" type="text" id="post-title" title="post-title" />
       </div>
-      {{!-- <div class="form-group">
-        <label for="post-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="post-funding" name="post-funding" />
-      </div>  --}}
+     
       <div class="form-group">
         <label for="post-desc">Description:</label>
         <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
+         alert("I am in post-title")
       </div>
     </form>
   </div>
 
   {{#if posts.length}}
-  
-  
   <div class="col-md-6 post-list">
     <h3>Current Posts:</h3>
 
     {{#each posts as |post|}}
-    
-     
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
@@ -49,29 +43,50 @@
   {{/if}}
 </div>
 
-<!--comments--->
+// added comments  handle bars here
+div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+ <div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a New  comment:</h3>
 
+    <form class="form new-comment-form">
+      <div class="form-group">
+        <label for="comment-ctitle">Comment title:</label>
+        <input class="form-input" type="text" id="comment-title" title="comment-title" />
+      </div>
+      
+      <div class="form-group">
+        <label for="comment-desc">Description:</label>
+        <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+        alert("I am in comment-title")
+      </div>
+    </form>
+  </div>
 
-  {{!-- {{#if comments.length}}
-  
-  
-  <div class="col-md-4 comments-list">
+  {{#if comments.length}}
+  <div class="col-md-6 comment-list">
     <h3>Current Comments:</h3>
-
-    {{#each comments as |comment|}}
-    
      
+    {{#each comments as |comment|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/comment/{{comments.id}}">{{comments.title}}</a></h4>
+        <h4><a href="/comment/{{comment.id}}">{{comment.title}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{comments.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" cdata-id="{{comment.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
   </div>
   {{/if}}
-</div> --}}
+</div>
+  
 
 <script src="./js/profile.js"></script>

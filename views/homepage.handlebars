@@ -1,4 +1,5 @@
-<h1>Tech Blog</h1>
+
+
 <!-- Loop over each object in the projects array -->
 {{#each posts as |post| }}
 
@@ -7,21 +8,56 @@
   <div class="col-md-5">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
+      {{!-- {{{get_emoji}}} --}}
+
+
+
       <a href="/post/{{post.id}}">{{post.title}}</a>
     </h2>
     <p>
       
-       {{!-- <span for="img" aria-label="money">💲</span>  --}}
-      {{!-- Pass needed_funding value to the helper function   --}}
-      {{!-- <span class="dollar-amount">{{format_amount post.needed_funding}}</span>  
-       needed!  --}}
+       {{!-- <span for="img" aria-label=""></span>   --}}
+      
+        
     </p>
     <p>Created by {{post.user.name}} on {{format_date post.date_created}}</p>
   </div>
   <div class="col-md-7">
     <p>
       {{post.description}}
+       
+       <p>comments can be added here</p>
+    </p>
+  </div>
+</div>
+{{/each}}
+
+
+
+added commment
+{{#each comments as |comment| }}
+
+
+<div class="row mb-4 post">
+  <div class="col-md-5">
+    <h2>
+     
+
+      <a href="/comment/{{comment.id}}">{{comment.ctitle}}</a>
+    </h2>
+    <p>
+      
+       {{!-- <span for="img" aria-label=""></span>   --}}
+      
+        
+    </p>
+    <p>Created by {{comment.user.name}} on {{format_date comment.date_created}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{comment.cdescription}}
+       
+       <p>comments can be added here</p>
     </p>
   </div>
 </div>

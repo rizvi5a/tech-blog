@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "watch":"nodemon server.js"
+    "watch": "nodemon server.js"
   },
   "name": "tech-blog",
   "description": "Setting up start-up filesgit",

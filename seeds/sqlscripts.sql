@@ -1,5 +1,5 @@
 use blog_db;
-select * from commment;
+select * from comment;
 select * from post;
 select * from session;
 select * from user;
