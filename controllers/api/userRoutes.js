@@ -1,22 +1,7 @@
 const router = require('express').Router();
 const  User = require("../../models/User");
 const withAuth = require('../../utils/auth');
-// router.post('/', async (req, res) => {
-//   console.log("Sign up",req.body)
-//   User.create(req.body)
-//   .then(function(userData){
 
-// req.session.save(() => {
-//       req.session.user_id = userData.id;
-//       req.session.logged_in     = true;
-//      console.log(userData)
-//      res.json({ user: userData, message: 'You are now Signed up and logged in!' });
-//    // });
-//   }). catch (function(err) {
-//     console.log("Err",err)
-//     res.status(400).json(err);
-//   })
-// });
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -49,7 +34,7 @@ console.log (userData);
 
 console.log("PASSWORD: "+req.body.password);
     const validPassword = await userData.checkPassword(req.body.password);
-
+//const validPassword=true;
     if (!validPassword) {
       console.log ("invaldi password");
       res

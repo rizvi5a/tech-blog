@@ -20,7 +20,7 @@
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
-         alert("I am in post-title")
+       
       </div>
     </form>
   </div>
@@ -43,32 +43,14 @@
   {{/if}}
 </div>
 
-// added comments  handle bars here
-div class="row">
+
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
- <div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New  comment:</h3>
 
-    <form class="form new-comment-form">
-      <div class="form-group">
-        <label for="comment-ctitle">Comment title:</label>
-        <input class="form-input" type="text" id="comment-title" title="comment-title" />
-      </div>
-      
-      <div class="form-group">
-        <label for="comment-desc">Description:</label>
-        <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-        alert("I am in comment-title")
-      </div>
-    </form>
-  </div>
+ <div class="row mt-4">
+  
 
   {{#if comments.length}}
   <div class="col-md-6 comment-list">

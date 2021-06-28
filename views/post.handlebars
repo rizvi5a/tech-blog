@@ -1,3 +1,4 @@
+
 <div class="text-center">
   <h2>{{name}}</h2>
   
@@ -9,11 +10,91 @@
   <p>Created by {{user.name}} on {{format_date date_created}}</p> 
     
   
-     console.log("I am in post handlebars")
+    
  
-   
+
     <button class="btn btn-primary">The Tech Blog!</button>
   </p>
 </div> 
+<div>
+  <ol>
+      {{#each comments}}
+    
+   <li><a href='javascript:delComment ({{@index}})'>[DELETE]</a> {{cdescription}}</li></li>
+  {{/each}}
+  </ol>
 
+</div>
+ <div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a New  comment:</h3>
 
+    <form id='newCommentForm' class="form new-comment-form1">
+      <div class="form-group">
+        <label for="comment-ctitle">Comment title:</label>
+        <input class="form-input" type="text" id="comment-title" title="comment-title" />
+      </div>
+      
+      <div class="form-group">
+        <label for="comment-desc">Description:</label>
+        <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+       
+      </div>
+    </form>
+  </div>
+<script>
+  //
+
+  const postId = {{id}};
+  var GV_COMMENTS=[];
+  let id =0;
+  let desc="";
+  let title = "";
+  {{#each comments}}
+     id = {{id}};
+     desc = "{{cdescription}}";
+     title = "{{ctitle}}";
+    
+    GV_COMMENTS.push({id: id, description: desc, title: title });
+   // console.log({{cdescription}});
+  {{/each}}
+
+  const newCommentHandler = async (event) => {
+    event.preventDefault();
+   //alert("newcommentFormHandler");
+  const ctitle = document.querySelector('#comment-title').value.trim();
+  const cdescription = document.querySelector('#comment-desc').value.trim();
+//alert("post comment");
+  if (ctitle && cdescription) {
+   const response = await fetch(`/api/comments`, {
+  method: 'POST',
+  body: JSON.stringify({post_id: postId, ctitle,  cdescription }),
+  headers: {
+    'Content-Type': 'application/json',
+  }
+});
+
+if (response.ok) {
+  document.location.replace('/profile');
+} else {
+  alert('Failed to create comment');
+}
+  }
+  }
+  async function delComment (idx)
+  {
+   // alert(GV_COMMENTS[idx].id);
+     const response = await fetch(`/api/comments/${id}`, {
+      method: 'DELETE',
+    });
+    alert("deleted");
+console.log (response);
+    
+  }
+    document
+.getElementById('newCommentForm')
+.addEventListener('submit', newCommentHandler );
+</script>

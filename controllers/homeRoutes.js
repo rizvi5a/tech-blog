@@ -15,8 +15,6 @@ router.get('/', async (req, res) => {
     });
 
 
-
-
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
 
@@ -59,12 +57,37 @@ router.get('/post/:id', async (req, res) => {
     });
 
     const post = postData.get({ plain: true });
+    console.log ("POST: ",post);
+    const userId = post.user_id;
+    const postId = parseInt(req.params.id);
+    console.log ("USER ID: "+userId);
+    const commenttData = await Comment.findAll({
+     where: {post_id:postId, user_id:userId} ,
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
+
+   // console.log ("commenttData", commenttData);
+
+    let comments=[]
+    // Serialize data so the template can read it
+    if (commenttData!==null)
+      comments = commenttData.map((comment) => comment.get({ plain: true }));
+
+  //  console.log ("COMMENTS:");
+    //console.log(comments);
     res.render('post', {
       ...post,
+      comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {
+    console.log ("ERROR");
     res.status(500).json(err);
   }
 });
@@ -89,7 +112,7 @@ router.get('/profile', withAuth, async (req, res) => {
       logged_in: true
     });
   } catch (err) {
-    console.log ("PROFILE.ERROR")
+   // console.log ("PROFILE.ERROR")
     res.status(500).json(err);
   }
 });
@@ -120,35 +143,6 @@ router.get('/logout', (req, res) => {
   }
 });
 // module.exports = router;
-
-
-router.get('/test', async (req, res) => {
-  try {
-    // Get all posts and JOIN with user data
-    const postData = await Comment.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-
-
-
-    // Serialize data so the template can read it
-    const comments = commenttData.map((comment) => comment.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      comments, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 router.get('/comment/:id', async (req, res) => {
   try {
