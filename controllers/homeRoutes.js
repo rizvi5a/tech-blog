@@ -24,8 +24,8 @@ router.get('/', async (req, res) => {
   
   
       // Serialize data so the template can read it
-      const comments = commenttData.map((comment) => comment.get({ plain: true }));
-      */
+    //  const comments = commenttData.map((comment) => comment.get({ plain: true }));
+      
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       posts, 
@@ -33,6 +33,7 @@ router.get('/', async (req, res) => {
       logged_in: req.session.logged_in 
     });
   } catch (err) {
+    console.log ("ERROR:", err);
     res.status(500).json(err);
   }
 });
