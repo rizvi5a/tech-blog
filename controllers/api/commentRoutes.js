@@ -13,7 +13,7 @@ router.post('/',  async (req, res) => {
   try {
     const newComment = await Comment.create({
       ...req.body,
-      
+      user_name: req.session.userName,
       user_id: req.session.user_id,
     });
 console.log(newComment);

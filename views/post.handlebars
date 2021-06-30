@@ -3,6 +3,7 @@
   <h2>{{name}}</h2>
   
   {{!-- <p>{{{get_emoji}}}</p> --}}
+  <p>Title: {{title}}</p>
   <p>{{description}}</p>
 
 
@@ -20,7 +21,8 @@
   <ol>
       {{#each comments}}
     
-   <li><a href='javascript:delComment ({{@index}})'>[DELETE]</a> {{cdescription}}</li></li>
+      <li><a href='javascript:delComment ({{@index}}, {{user_id}})'>[DELETE]</a> {{cdescription}} by {{user_name}}</li>
+     
   {{/each}}
   </ol>
 
@@ -49,6 +51,8 @@
   //
 
   const postId = {{id}};
+  const userId = {{userId}};
+
   var GV_COMMENTS=[];
   let id =0;
   let desc="";
@@ -78,21 +82,26 @@
 });
 
 if (response.ok) {
-  document.location.replace('/profile');
+  document.location.replace('/post/'+postId);
 } else {
   alert('Failed to create comment');
 }
   }
   }
-  async function delComment (idx)
+  async function delComment (idx, uid)
   {
+    if (uid !== userId)
+    {
+      alert ("Only user who created the comment can delete it");
+      return;
+    }
    // alert(GV_COMMENTS[idx].id);
      const response = await fetch(`/api/comments/${id}`, {
       method: 'DELETE',
     });
     alert("deleted");
 console.log (response);
-    
+    document.location.replace('/post/'+postId);
   }
     document
 .getElementById('newCommentForm')

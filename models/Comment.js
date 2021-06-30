@@ -41,6 +41,10 @@ Comment.init(
       key: 'id',
     },
   },
+  user_name: {
+    type: DataTypes.STRING,
+    allowable: false,
+  },
 },
 {
   sequelize,
