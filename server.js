@@ -11,8 +11,8 @@ const helpers = require('./utils/helpers');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-const PORT = process.env.PORT || 3001;
-
+const PORT = process.env.PORT || 3000;
+//port chnaged 3001 to 3000 heroku
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
 
