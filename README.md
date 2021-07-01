@@ -18,10 +18,12 @@
 16.  
 17. This is probably not the best refactoring of mini-project code,but it meets the requiremnsts. 
 18. The following are the screen-shots showing the functionality of code how it works.
+19. Link to github repository:
+
+https://github.com/rizvi5a/tech-blog
 
 
-
-19. Post , Comment, log-in page, and MSQL data pages screenshots, respectively.
+20. Post , Comment, log-in page, and MSQL data pages screenshots, respectively.
 <img src="./Assets/tech-blog-post.png" alt="Post Picture>/img">
 <img src="./Assets/tech-blog-comment.png" alt="Post Picture>/img">
 <img src="./Assets/tech-blog-login.png" alt="Post Picture>/img">
