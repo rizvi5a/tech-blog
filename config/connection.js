@@ -3,6 +3,9 @@ require('dotenv').config();
 
 let sequelize;
 
+
+//  mysql://b2bca72ee75f3a:733c0fff@us-cdbr-east-04.cleardb.com/heroku_f4413b013f21869?reconnect=true
+
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
