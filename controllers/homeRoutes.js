@@ -39,6 +39,8 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/post/:id', async (req, res) => {
+  if (!req.session.user_id)
+    res.end ("user not logged in");
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -51,7 +53,7 @@ router.get('/post/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
     console.log ("POST: ",post);
-    const userId = post.user_id;
+    const userId = post.user_id | 0;
     const postId = parseInt(req.params.id);
     console.log ("USER ID: "+userId);
     const commenttData = await Comment.findAll({
