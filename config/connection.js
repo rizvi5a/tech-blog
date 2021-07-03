@@ -7,7 +7,7 @@ let sequelize;
 //  mysql://b2bca72ee75f3a:733c0fff@us-cdbr-east-04.cleardb.com/heroku_f4413b013f21869?reconnect=true
 
 if (process.env.JAWSDB_URL) {
-  sequelize = new Sequelize(process.env.JAWSDB_URL);
+  sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL);
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
@@ -24,10 +24,10 @@ if (process.env.JAWSDB_URL) {
    module.exports = sequelize;
 
 // Set up MySQL connection.
-// var mysql = require("mysql");
-// var connection;
-// //make connection
-// if (process.env.JAWSDB_URL){
+//var mysql = require("mysql2");
+//var connection;
+//make connection
+//if (process.env.JAWSDB_URL){
 //   connection = mysql.createConnection(process.env.JAWSDB_URL);
 // }else{
 //   connection = mysql.createConnection({
