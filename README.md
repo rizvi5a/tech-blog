@@ -22,6 +22,10 @@
 
 https://github.com/rizvi5a/tech-blog
 
+20. The fooling is the web page deployed with Heroku:
+
+https://rizvi-techblog.herokuapp.com/login
+
 
 20. Post , Comment, log-in page, and MSQL data pages screenshots, respectively.
 <img src="./Assets/tech-blog-post.png" alt="Post Picture>/img">

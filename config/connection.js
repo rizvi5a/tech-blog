@@ -5,7 +5,16 @@ let sequelize;
 
 
 //  mysql://b2bca72ee75f3a:733c0fff@us-cdbr-east-04.cleardb.com/heroku_f4413b013f21869?reconnect=true
+//  mysql://b2bca72ee75f3a:733c0fff@us-cdbr-east-04.cleardb.com/heroku_f4413b013f21869?reconnect=true
 
+//  mysql://jer6vnj0is7ql68g:vo8f12ossf04y4v9@pk1l4ihepirw9fob.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/vzs1p3xykzas7xed
+
+/*
+h: pk1l4ihepirw9fob.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
+u: jer6vnj0is7ql68g
+p: vo8f12ossf04y4v9
+
+*/
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL);
 } else {
